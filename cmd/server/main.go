@@ -66,29 +66,6 @@ func main() {
 		if len(update.Message.Photo) > 0 {
 			logAndSend(initializer.BotTelegram, chatID, "Photo received, Start Processing!")
 
-			// analysisResult2 := `**📊 Nutrition Estimation**
-			// *   **Profile:** High Fat (contributing almost half of total calories), balanced with carbohydrates and protein.
-			// *   **Key Levels:** Sugar is Moderate (10g/serving). Sodium is Low (55mg/serving). Saturated Fat is High (3.5g, 19% DV/serving).
-
-			// **⚠️ Ingredient Analysis**
-			// *   **Red Flags:** N/A (Ingredient list not provided, thus cannot identify ultra-processed additives, preservatives, artificial colors, or hidden sugars beyond the listed 'gula/sugars').
-			// *   **Allergens/Sensitivities:** Contains Lactose (10g), indicating a dairy-based product, which is an allergen for individuals with lactose intolerance or dairy allergy.
-			// *   **Positive Callouts:** N/A (Ingredient list not provided). Provides 8g of protein and 2g of dietary fiber per serving.
-
-			// **✅ Verdict**
-			// *   **Rating:** Moderate
-			// *   **Summary:** This product has a moderate nutritional profile with high saturated fat and moderate sugar from lactose, but offers a good amount of protein and low sodium; a complete assessment is limited without the full ingredient list.`
-			// logAndSend(initializer.BotTelegram, chatID, analysisResult2)
-
-			// // -- SEND RESULT BACK TO USER ---
-			// reply2 := tgbotapi.NewMessage(chatID, analysisResult2)
-			// log.Println("Sending analysis result to user...")
-			// reply2.ParseMode = "Markdown"
-			// log.Println("Parsed message to Markdown format.")
-			// initializer.BotTelegram.Send(reply2)
-
-			// continue
-
 			photo := update.Message.Photo[len(update.Message.Photo)-1]
 			fileConfig, err := initializer.BotTelegram.GetFile(tgbotapi.FileConfig{FileID: photo.FileID})
 			if err != nil {
